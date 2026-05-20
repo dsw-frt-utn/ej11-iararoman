@@ -70,13 +70,50 @@ internal class Ejemplos
         }
     }
 
-    //Agregar 3 alumnos al diccionario
-    //Listar por consola los alumnos
-    //Buscar un alumno por clave y mostrar por consola
-    //Buscar un alumno por clave, pero que no exista, y mostrar por consola el texto "No existe"
-    //Eliminar un alumno por clave y listar por consola los alumnos
+    
     public static void EjemploDictionary()
     {
+        CasoDictionary miCasoDictionary = new CasoDictionary();
+
+        //Agregar 3 alumnos al diccionario
+
+        Alumno alumno1 = new Alumno(1, "Gabriel", 9.5);
+        Alumno alumno2 = new Alumno(2, "Iara", 8.5);
+        Alumno alumno3 = new Alumno(3, "Maria", 7);
+
+        miCasoDictionary.AgregarAlumnoDiccionario(alumno1);
+        miCasoDictionary.AgregarAlumnoDiccionario(alumno2);
+        miCasoDictionary.AgregarAlumnoDiccionario(alumno3);
+
+        //Listar por consola los alumnos
+        Console.WriteLine("\nLista de Alumnos");
+        var diccionario = miCasoDictionary.ObtenerDiccionario();
+        foreach(var alumno in diccionario)
+        {
+            Console.WriteLine(alumno);
+        }
+
+        //Buscar un alumno por clave y mostrar por consola
+        Console.WriteLine("\nBuscando alumno...");
+        var alumnoEncontrado = miCasoDictionary.BuscarALumno(1);
+        Console.WriteLine($"\nAlumno encontrado: {alumnoEncontrado}");
+
+        //Buscar un alumno por clave, pero que no exista, y mostrar por consola el texto "No existe"
+        Console.WriteLine("\nBuscando alumno...");
+        var alumnoNoEncontrado = miCasoDictionary.BuscarALumno(5);
+        if(alumnoNoEncontrado == null)
+        {
+            Console.WriteLine("\nNo existe");
+        }
+        //Eliminar un alumno por clave y listar por consola los alumnos
+        Console.WriteLine("\nELiminando alumno...");
+        miCasoDictionary.EliminarAlumnoClave(3);
+        var listaFinal = miCasoDictionary.ObtenerDiccionario();
+        foreach(var alumno in listaFinal)
+        {
+            Console.WriteLine(alumno);
+        }
+        
 
     }
 
