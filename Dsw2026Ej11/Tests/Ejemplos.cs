@@ -118,8 +118,81 @@ internal class Ejemplos
     }
 
     //Realizar una llamada a cada método definido en CasoLinq y mostar por consola según corresponda
+
+    //*1.Obtener el primer libro(GetPrimero)
+    //* 2.Obtener el último libro(GetUltimo)
+    //* 3.Obtener la suma de precios(GetTotalPrecios)
+    // *4.Obtener el promedio de precios(GetPromedioPrecios)
+    // *5.Obtener la lista de libros con Id mayor a 15(GetListById)
+    // * 6.Obtener una lista de cada libro con su título y precio en formato moneda(GetLibros)(debe retornar una lista de string)
+    // * 7.Obtener el libro con el precio más alto(GetMayorPrecio)
+    // * 8.Obtener el libro con el precio más bajo(GetMenorPrecio)
+    // * 9.Obtener los libros cuyo precio sea mayor al promedio(GetMayorPromedio)
+    // *10.Obtener los libros ordenados por título de forma descendente
     public static void EjemploLinq()
     {
+        CasoLinq miCasoLinq = new CasoLinq();
 
+        //*1.Obtener el primer libro(GetPrimero)
+        Console.WriteLine("\nObteniendo el primer libro...");
+        var primerLibro = miCasoLinq.GetPrimero();
+        Console.WriteLine(primerLibro);
+
+        //* 2.Obtener el último libro(GetUltimo)
+        Console.WriteLine("\nObteniendo el ultimo libro...");
+        var ultimoLibro = miCasoLinq.GetUltimo();
+        Console.WriteLine(ultimoLibro);
+
+        //* 3.Obtener la suma de precios(GetTotalPrecios)
+        Console.WriteLine("\nObteniendo la suma de precios...");
+        var suma = miCasoLinq.GetTotalPrice();
+        Console.WriteLine($"{suma:C}");
+
+        // *4.Obtener el promedio de precios(GetPromedioPrecios)
+        Console.WriteLine("\nObteniendo el promedio de los precios...");
+        var promedio = miCasoLinq.GetPromedioPrecios();
+        Console.WriteLine($"{promedio:F2}");
+
+        // *5.Obtener la lista de libros con Id mayor a 15(GetListById)
+        Console.WriteLine("\nObteniendo la lista de libros con Id mayor a 15...");
+        var libroMayorA15 = miCasoLinq.GetListById();
+        foreach(var libro in libroMayorA15)
+        {
+            Console.WriteLine(libro);
+        }
+
+        // * 6.Obtener una lista de cada libro con su título y precio en formato moneda(GetLibros)(debe retornar una lista de string)
+        Console.WriteLine("\nObteniendo lista de libros...");
+        var listaLibros = miCasoLinq.GetLibros();
+        foreach(var libro in listaLibros)
+        {
+            Console.WriteLine(libro);
+        }
+
+        // * 7.Obtener el libro con el precio más alto(GetMayorPrecio)
+        Console.WriteLine("\nObteniendo libro con el precio mas alto...");
+        var libroMasAlto = miCasoLinq.GetMayorPrecio();
+        Console.WriteLine(libroMasAlto);
+
+        // * 8.Obtener el libro con el precio más bajo(GetMenorPrecio)
+        Console.WriteLine("\nObteniendo libro con menor precio");
+        var libroMasBajo = miCasoLinq.GetMenorPrecio();
+        Console.WriteLine(libroMasBajo);
+
+        // * 9.Obtener los libros cuyo precio sea mayor al promedio(GetMayorPromedio)
+        Console.WriteLine("\nObteniendo lista de libros cuyo precio es mayor al promedio...");
+        var listaLibrosMayor = miCasoLinq.GetMayorPromedio();
+        foreach (var libro in listaLibrosMayor)
+        {
+            Console.WriteLine(libro);
+        }
+
+        // *10.Obtener los libros ordenados por título de forma descendente
+        Console.WriteLine("\nObteniendo lista de libros ordenados por titulo de forma descendente...");
+        var listaLibrosDescendente = miCasoLinq.ObtenerLibrosDesc();
+        foreach(var libro in listaLibrosDescendente)
+        {
+            Console.WriteLine(libro);
+        }
     }
 }
